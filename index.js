@@ -51,9 +51,9 @@ async function run() {
             return res.status(403).send({ message: "forbidden user" });
           }
           req.decoded = decoded;
+          next();
         }
       );
-      next();
     }
     // load all service api GET
     app.get("/service", async (req, res) => {
